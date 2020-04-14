@@ -26,7 +26,7 @@ resource "aws_route53_record" "default_amazonses_dkim_record" {
 
 resource "aws_ses_domain_mail_from" "default" {
   domain           = aws_ses_domain_identity.default.domain
-  mail_from_domain = aws_ses_domain_identity.default.domain
+  mail_from_domain = "mail.${aws_ses_domain_identity.default.domain}"
   depends_on       = [aws_ses_domain_dkim.default]
 }
 
